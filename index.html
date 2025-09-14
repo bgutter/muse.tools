@@ -9,18 +9,17 @@
 <body>
   <div class="site-header">Muse.Tools</div>
   <div class="outer-container">
-    <nav class="sidebar">
-      <ul id="menu">
-        <li>
-          <span class="collapsible">Finance</span>
-          <ul class="content">
-            <li onclick="setApp('investment-growth')">Investment Growth</li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-    <div id="app"></div>
+    <div class="sidebar-menu">
+      <div class="menu-item menu-folder">Finance
+        <div class="menu-folder-items">
+          <div class="menu-item" onclick="setApp('investment-growth')">Investment Growth</div>
+          <div class="menu-item" onclick="setApp('sequence-return-risk')">Sequence of Returns Risk</div>
+        </div>
+      </div>
+    </div> <!-- Sidebar -->
+  <div id="app" class="app-container"></div>
   </div>
-  <script src="script.js"></script>
+</div>
+<script src="script.js"></script>
 </body>
 </html>

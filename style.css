@@ -18,13 +18,38 @@ html, body {
     margin: 0px;
 }
 
-.sidebar {
+.app-container {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.menu-item {
+    overflow: hidden;
+    margin: 5px;
+    height: auto;
+}
+.sidebar-menu {
     width: 200px;
     background-color: #f4f4f4;
     padding: 15px;
 }
 
-.app {
-  flex-grow: 1;
-  padding: 20px;
+.menu-folder-items {
+    height: 0px;
+    position: relative;
+    top: -100px;
+}
+
+.menu-folder-items-collapsed {
+    height: auto;
+    top: 0;
+    transition: top 0.2s ease-out;
+}
+
+.menu-item {
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background-color: red;
 }

@@ -1,0 +1,3 @@
+function initializeCalculator() {
+    alert("Done!");
+};

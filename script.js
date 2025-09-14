@@ -1,21 +1,31 @@
-document.querySelectorAll('.collapsible').forEach(item => {
-    item.addEventListener('click', () => {
-        const content = item.nextElementSibling;
-        if (content.style.display === 'block') {
-            content.style.display = 'none';
-        } else {
-            content.style.display = 'block';
-        }
+document.querySelectorAll('.menu-folder').forEach(item => {
+    item.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const content = item.firstElementChild;
+        content.classList.toggle('menu-folder-items-collapsed');
     });
 });
 
 function setApp(calculatorName) {
-    const appDiv = document.getElementById('app');
-    appDiv.innerHTML = ''; // Clear previous content
-    // Load relevant calculator content
-    if (calculatorName === 'investment-growth') {
-        appDiv.innerHTML = '<h1>Under Construction</h1>'; // Replace with actual HTML
-    } else {
-        appDiv.innerHTML = '<h1>Unknown Item</h1>'; // Replace with actual HTML
-    }
+    fetch(`calculators/${calculatorName}.html`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('app').innerHTML = data;
+
+            // Dynamically load and execute the associated JS file
+            const script = document.createElement('script');
+            script.src = `calculators/${calculatorName}-script.js`;
+            script.onload = () => {
+                if (typeof initializeCalculator === 'function') {
+                    initializeCalculator();
+                }
+            };
+            document.body.appendChild(script);
+        })
+        .catch(error => console.error('Error loading calculator:', error));
 }
