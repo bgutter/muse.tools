@@ -1,1 +1,47 @@
+# Node modules
 **/node_modules
+
+# Emacs backup files
+*~
+*.elc
+
+# Emacs directory
+.emacs.d/
+
+# Byte-compiled / cached / build output
+/dist
+/tmp
+/out
+
+# Dependency directories
+**/node_modules
+
+# Debug
+.DS_Store
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.pid.lock
+
+# Build
+build
+
+# Editor directories
+.vscode/
+.idea/
+
+# MacOS system files
+.DS_Store
+
+# Various IDE specific projects
+*.iml
+*.sublime-project
+*.sublime-workspace
+
+# dotenv environment variables file
+.env
